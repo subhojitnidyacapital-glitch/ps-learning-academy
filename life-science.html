@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Life Science | PS Learning Academy</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: #4f46e5;
+        }
+
+        .tagline {
+            font-size: 10px;
+            color: #64748b;
+            letter-spacing: 2px;
+            margin-top: 3px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            background: #4f46e5;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            background: #3730a3;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* MAIN */
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 50px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* CLASS CARDS */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .class-card {
+            background: white;
+            border-radius: 15px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .class-number {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #eef2ff;
+            color: #4f46e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .class-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .class-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .study-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #4f46e5;
+            color: white;
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .study-btn:hover {
+            background: #3730a3;
+        }
+
+        /* CLASS DETAILS */
+        .class-details {
+            margin-top: 60px;
+        }
+
+        .detail-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 5px solid #4f46e5;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+            scroll-margin-top: 100px;
+        }
+
+        .detail-box h2 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        .detail-box p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .resource {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .resource-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .resource h4 {
+            margin-bottom: 5px;
+        }
+
+        .resource p {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        /* INFO */
+        .info-box {
+            margin-top: 40px;
+            background: #eef2ff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #4f46e5;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .class-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .resources {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .tagline {
+                font-size: 8px;
+            }
+
+            .back-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .detail-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div>
+            <div class="logo">🎓 PS Learning Academy</div>
+            <div class="tagline">LEARN • GROW • SUCCEED</div>
+        </div>
+
+        <a href="courses.html" class="back-btn">
+            ← Back to Courses
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-icon">🧬</div>
+
+        <h1>Life Science</h1>
+
+        <p>Classes 8–12 • Online Tuition</p>
+
+    </section>
+
+
+    <!-- CLASS SELECTION -->
+    <main class="container">
+
+        <div class="section-title">
+
+            <h2>Select Your Class</h2>
+
+            <p>
+                Choose your class to access Life Science learning resources.
+            </p>
+
+        </div>
+
+
+        <div class="class-grid">
+
+            <!-- CLASS 8 -->
+            <div class="class-card">
+
+                <div class="class-number">8</div>
+
+                <h3>Class 8</h3>
+
+                <p>
+                    Life Science study materials and learning resources.
+                </p>
+
+                <a href="#class8" class="study-btn">
+                    View Class
+                </a>
+
+            </div>
+
+
+            <!-- CLASS 9 -->
+            <div class="class-card">
+
+                <div class="class-number">9</div>
+
+                <h3>Class 9</h3>
+
+                <p>
+                    Life Science study materials and learning resources.
+                </p>
+
+                <a href="#class9" class="study-btn">
+                    View Class
+                </a>
+
+            </div>
+
+
+            <!-- CLASS 10 -->
+            <div class="class-card">
+
+                <div class="class-number">10</div>
+
+                <h3>Class 10</h3>
+
+                <p>
+                    Life Science study materials and learning resources.
+                </p>
+
+                <a href="#class10" class="study-btn">
+                    View Class
+                </a>
+
+            </div>
+
+
+            <!-- CLASS 11 -->
+            <div class="class-card">
+
+                <div class="class-number">11</div>
+
+                <h3>Class 11</h3>
+
+                <p>
+                    Life Science study materials and learning resources.
+                </p>
+
+                <a href="#class11" class="study-btn">
+                    View Class
+                </a>
+
+            </div>
+
+
+            <!-- CLASS 12 -->
+            <div class="class-card">
+
+                <div class="class-number">12</div>
+
+                <h3>Class 12</h3>
+
+                <p>
+                    Life Science study materials and learning resources.
+                </p>
+
+                <a href="#class12" class="study-btn">
+                    View Class
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CLASS DETAILS -->
+
+        <div class="class-details">
+
+            <!-- CLASS 8 -->
+            <div class="detail-box" id="class8">
+
+                <h2>📘 Class 8 Life Science</h2>
+
+                <p>
+                    Class 8 students can access chapters, study materials,
+                    videos and tests from this section.
+                </p>
+
+                <div class="resources">
+
+                    <div class="resource">
+                        <div class="resource-icon">📚</div>
+                        <h4>Chapters</h4>
+                        <p>Chapter-wise learning</p>
+                    </div>
+
+                    <div class="resource">
+                        <div class="resource-icon">📄</div>
+                        <h4>Study Materials</h4>
+                        <p>Notes and PDFs</p>
+                    </div>
+
+                    <div class="resource">
+                        <div class="resource-icon">📝</div>
+                        <h4>Tests</h4>
+                        <p>Practice tests</p>
+                    </div>
+
+                </div>
+
+            </div>

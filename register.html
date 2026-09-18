@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Account | PS Learning Academy</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    background:#f8fafc;
+    color:#172554;
+}
+
+/* MAIN */
+
+.register-container{
+    width:100%;
+    max-width:1050px;
+    display:grid;
+    grid-template-columns:42% 58%;
+    background:#ffffff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(15,23,42,.12);
+}
+
+/* LEFT */
+
+.left-panel{
+    padding:55px 48px;
+    background:#ffffff;
+    border-right:1px solid #e2e8f0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.brand{
+    font-size:25px;
+    font-weight:800;
+    color:#312e81;
+}
+
+.brand-line{
+    width:45px;
+    height:3px;
+    background:#4f46e5;
+    border-radius:10px;
+    margin:12px 0 42px;
+}
+
+.left-panel h1{
+    font-size:38px;
+    line-height:1.15;
+    color:#172554;
+    margin-bottom:18px;
+}
+
+.left-panel p{
+    font-size:15px;
+    line-height:1.8;
+    color:#64748b;
+    max-width:350px;
+}
+
+.info-list{
+    margin-top:35px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:18px;
+    color:#334155;
+    font-size:14px;
+}
+
+.info-icon{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:#eef2ff;
+    color:#4f46e5;
+    font-weight:bold;
+}
+
+/* RIGHT */
+
+.right-panel{
+    padding:48px 55px;
+}
+
+.form-header{
+    margin-bottom:28px;
+}
+
+.form-header h2{
+    font-size:30px;
+    color:#172554;
+    margin-bottom:8px;
+}
+
+.form-header p{
+    color:#64748b;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* FORM */
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    color:#334155;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    height:46px;
+    padding:0 14px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    outline:none;
+    background:#ffffff;
+    color:#172554;
+    font-size:14px;
+    transition:.2s;
+}
+
+.form-group input::placeholder{
+    color:#94a3b8;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 0 3px rgba(79,70,229,.10);
+}
+
+/* TERMS */
+
+.terms{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    margin:3px 0 20px;
+    color:#64748b;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.terms input{
+    margin-top:2px;
+}
+
+/* BUTTON */
+
+.create-account{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:10px;
+    background:#4f46e5;
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.create-account:hover{
+    background:#4338ca;
+    transform:translateY(-1px);
+}
+
+/* LOGIN */
+
+.login-text{
+    text-align:center;
+    margin-top:20px;
+    color:#64748b;
+    font-size:13px;
+}
+
+.login-text a{
+    color:#4f46e5;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.login-text a:hover{
+    text-decoration:underline;
+}
+
+/* SECURITY */
+
+.security-note{
+    text-align:center;
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid #e2e8f0;
+    color:#94a3b8;
+    font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    body{
+        padding:15px;
+    }
+
+    .register-container{
+        grid-template-columns:1fr;
+        max-width:480px;
+        border-radius:20px;
+    }
+
+    .left-panel{
+        padding:32px 25px;
+        text-align:center;
+        border-right:none;
+        border-bottom:1px solid #e2e8f0;
+    }
+
+    .brand-line{
+        margin:10px auto 25px;
+    }
+
+    .left-panel h1{
+        font-size:29px;
+    }
+
+    .left-panel p{
+        margin:auto;
+        font-size:14px;
+    }
+
+    .info-list{
+        display:none;
+    }
+
+    .right-panel{
+        padding:32px 25px;
+    }
+
+    .form-header{
+        text-align:center;
+    }
+
+    .form-header h2{
+        font-size:26px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="register-container">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="left-panel">
+
+        <div class="brand">
+            PS Learning Academy
+        </div>
+
+        <div class="brand-line"></div>
+
+        <h1>
+            Begin Your<br>
+            Learning Journey
+        </h1>
+
+        <p>
+            Create your student account and access
+            your personalised learning experience.
+        </p>
+
+
+        <div class="info-list">
+
+            <div class="info-item">
+
+                <div class="info-icon">✓</div>
+
+                <span>
+                    Access your enrolled courses
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">✓</div>
+
+                <span>
+                    Study materials and resources
+                </span>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">✓</div>
+
+                <span>
+                    Track tests and learning progress
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right-panel">
+
+        <div class="form-header">
+
+            <h2>
+                Create Student Account
+            </h2>
+
+            <p>
+                Enter your details below to register
+                with PS Learning Academy.
+            </p>
+
+        </div>
+
+
+        <form>
+
+            <!-- NAME + MOBILE -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="mobile">
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        placeholder="10-digit mobile number"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- CLASS + BOARD -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="class">
+                        Class
+                    </label>
+
+                    <select id="class" required>
+
+                        <option value="">
+                            Select class
+                        </option>
+
+                        <option>Class 3</option>
+                        <option>Class 4</option>
+                        <option>Class 5</option>
+                        <option>Class 6</option>
+                        <option>Class 7</option>
+                        <option>Class 8</option>
+                        <option>Class 9</option>
+                        <option>Class 10</option>
+                        <option>Class 11</option>
+                        <option>Class 12</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="board">
+                        Board
+                    </label>
+
+                    <select id="board" required>
+
+                        <option value="">
+                            Select board
+                        </option>
+
+                        <option>WBBSE</option>
+                        <option>WBCHSE</option>
+                        <option>CBSE</option>
+                        <option>ICSE</option>
+                        <option>ISF</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TERMS -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label for="terms">
+                    I agree to the terms and conditions
+                    of PS Learning Academy.
+                </label>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="create-account"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+
+        <div class="login-text">
+
+            Already have an account?
+
+            <a href="login.html">
+                Sign in
+            </a>
+
+        </div>
+
+
+        <div class="security-note">
+
+            Your account information will be securely handled.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

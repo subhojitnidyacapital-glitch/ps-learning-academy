@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="PS Learning Academy Student Dashboard - Access courses, study materials, tests and learning progress.">
+
+    <title>Student Dashboard | PS Learning Academy</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #172554;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            width: 100%;
+            height: 72px;
+
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            color: #312e81;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .logo small {
+            display: block;
+            color: #64748b;
+
+            font-size: 9px;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            margin-top: 2px;
+        }
+
+
+        /* PROFILE */
+
+        .profile-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-name {
+            color: #334155;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            background: #eef2ff;
+            color: #4f46e5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 42px 6%;
+        }
+
+
+        /* =========================
+           WELCOME
+        ========================= */
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            color: #172554;
+
+            font-size: 30px;
+            font-weight: 800;
+
+            margin-bottom: 6px;
+        }
+
+        .welcome p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           STATISTICS
+        ========================= */
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 38px;
+        }
+
+        .stat-card {
+            background: #ffffff;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+
+            transition: 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 24px rgba(15, 23, 42, 0.07);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #eef2ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 21px;
+        }
+
+        .stat-card h2 {
+            color: #172554;
+
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            color: #172554;
+
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           COURSE CARDS
+        ========================= */
+
+        .course-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .course-card {
+            background: #ffffff;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            transition: 0.2s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .course-banner {
+            height: 115px;
+
+            background: #eef2ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 40px;
+        }
+
+        .course-content {
+            padding: 20px;
+        }
+
+        .course-content h3 {
+            color: #172554;
+
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+        .course-content p {
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 16px;
+        }
+
+        .course-button {
+            display: inline-block;
+
+            padding: 9px 15px;
+
+            background: #4f46e5;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .course-button:hover {
+            background: #4338ca;
+        }
+
+
+        /* =========================
+           QUICK ACCESS
+        ========================= */
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .quick-card {
+            background: #ffffff;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 13px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            color: #172554;
+
+            transition: 0.2s;
+        }
+
+        .quick-card:hover {
+            border-color: #a5b4fc;
+
+            transform: translateY(-2px);
+        }
+
+        .quick-icon {
+            font-size: 26px;
+
+            margin-bottom: 9px;
+        }
+
+        .quick-card h3 {
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .quick-card p {
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            border-top: 1px solid #e2e8f0;
+
+            background: #ffffff;
+
+            text-align: center;
+
+            padding: 22px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .quick-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .header {
+                height: 65px;
+
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .logo small {
+                font-size: 7px;
+            }
+
+            .student-name {
+                display: none;
+            }
+
+            .profile-circle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .main {
+                padding: 30px 20px;
+            }
+
+            .welcome h1 {
+                font-size: 25px;
+            }
+
+            .welcome p {
+                font-size: 13px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+
+            PS Learning Academy
+
+            <small>
+                LEARN • GROW • SUCCEED
+            </small>
+
+        </a>
+
+
+        <div class="profile-area">
+
+            <span class="student-name">
+                Student
+            </span>
+
+            <div class="profile-circle">
+                S
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <h1>
+                Welcome, Student
+            </h1>
+
+            <p>
+                Continue your learning journey with
+                PS Learning Academy.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             STATISTICS
+        ========================= -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <h2>0</h2>
+
+                    <p>
+                        Enrolled Courses
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <h2>0</h2>
+
+                    <p>
+                        Tests Completed
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <h2>0%</h2>
+
+                    <p>
+                        Learning Progress
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             MY COURSES
+        ========================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    My Courses
+                </h2>
+
+            </div>
+
+
+            <div class="course-grid">
+
+
+                <!-- COURSE 1 -->
+
+                <article class="course-card">
+
+                    <div class="course-banner">
+                        📖
+                    </div>
+
+                    <div class="course-content">
+
+                        <h3>
+                            Life Science
+                        </h3>
+
+                        <p>
+                            Classes 8–12 • Complete
+                            learning resources.
+                        </p>
+
+                        <a href="courses.html" class="course-button">
+                            View Course
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- COURSE 2 -->
+
+                <article class="course-card">
+
+                    <div class="course-banner">
+                        📘
+                    </div>
+
+                    <div class="course-content">
+
+                        <h3>
+                            All Subjects
+                        </h3>
+
+                        <p>
+                            Classes 3–8 • Complete
+                            academic support.
+                        </p>
+
+                        <a href="courses.html" class="course-button">
+                            View Course
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- COURSE 3 -->
+
+                <article class="course-card">
+
+                    <div class="course-banner">
+                        🎓
+                    </div>
+
+                    <div class="course-content">
+
+                        <h3>
+                            Arts
+                        </h3>
+
+                        <p>
+                            Classes 8–12 • All subjects
+                            and learning resources.
+                        </p>
+
+                        <a href="courses.html" class="course-button">
+                            View Course
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUICK ACCESS
+        ========================= -->
+
+        <section class="section">
+
+            <h2 class="section-title"
+                style="margin-bottom:18px;">
+
+                Quick Access
+
+            </h2>
+
+
+            <div class="quick-grid">
+
+
+                <a href="#" class="quick-card">
+
+                    <div class="quick-icon">
+                        🎥
+                    </div>
+
+                    <h3>
+                        Videos
+                    </h3>
+
+                    <p>
+                        Learning videos
+                    </p>
+
+                </a>
+
+
+
+                <a href="#" class="quick-card">
+
+                    <div class="quick-icon">
+                        📄
+                    </div>
+
+                    <h3>
+                        Study Materials
+                    </h3>
+
+                    <p>
+                        Notes and resources
+                    </p>
+
+                </a>
+
+
+
+                <a href="#" class="quick-card">
+
+                    <div class="quick-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Tests & Results
+                    </h3>
+
+                    <p>
+                        Check your results
+                    </p>
+
+                </a>
+
+
+
+                <a href="#" class="quick-card">
+
+                    <div class="quick-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        Ask Teacher
+                    </h3>
+
+                    <p>
+                        Submit your doubt
+                    </p>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="footer">
+
+        © 2026 PS Learning Academy.
+        All Rights Reserved.
+
+    </footer>
+
+
+</body>
+
+</html>
